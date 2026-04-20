@@ -11,7 +11,6 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('home');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Initialize dark mode from localStorage or system preference
   useEffect(() => {
@@ -37,11 +36,11 @@ export default function Dashboard() {
   };
 
   const navItems = [
-    { id: 'home', label: 'Beranda', icon: Home },
-    { id: 'yearbook', label: 'Buku Tahunan', icon: BookOpen },
-    { id: 'jobs', label: 'Karir', icon: Briefcase },
-    { id: 'network', label: 'Jaringan Alumni', icon: Users },
-    { id: 'profile', label: 'Profilku', icon: User },
+    { id: 'beranda', label: 'Beranda', icon: Home },
+    { id: 'bukutahunan', label: 'Buku Tahunan', icon: BookOpen },
+    { id: 'karir', label: 'Karir', icon: Briefcase },
+    { id: 'jaringanalumni', label: 'Jaringan Alumni', icon: Users },
+    { id: 'profil', label: 'Profil', icon: User },
   ];
 
   return (
@@ -134,45 +133,13 @@ export default function Dashboard() {
         {/* TOPBAR */}
         <header className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 md:px-8 py-3 md:py-4 flex justify-between items-center sticky top-0 z-10 transition-colors duration-300">
 
-          {/* MOBILE LOGO & MENU (Only shown on mobile) */}
-          <div className="md:hidden flex items-center mr-3 relative">
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="focus:outline-none transition-transform active:scale-95 flex items-center justify-center p-1"
-            >
-              <img
-                src="/images/logo_younion.png"
-                alt="Younion Logo"
-                className="w-10 h-auto object-contain drop-shadow-md dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]"
-              />
-            </button>
-
-            {/* Mobile Dropdown Menu */}
-            {isMobileMenuOpen && (
-              <div className="absolute top-12 left-0 w-52 bg-white dark:bg-slate-900 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-blue-900/10 rounded-2xl border border-slate-100 dark:border-slate-800 p-2 z-[60] fade-in-up">
-                {navItems.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = activeTab === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => {
-                        setActiveTab(item.id);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left text-sm transition-colors ${
-                        isActive 
-                        ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold' 
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
-                      }`}
-                    >
-                      <Icon size={18} className={isActive ? 'text-blue-600 dark:text-blue-400 scale-110' : 'text-slate-400 dark:text-slate-500'} />
-                      <span className="truncate">{item.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            )}
+          {/* MOBILE LOGO (Only shown on mobile) */}
+          <div className="md:hidden flex items-center flex-shrink-0 mr-3">
+            <img
+              src="/images/logo_younion.png"
+              alt="Younion Logo"
+              className="w-10 h-auto object-contain drop-shadow-md dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]"
+            />
           </div>
 
           {/* SEARCH */}
