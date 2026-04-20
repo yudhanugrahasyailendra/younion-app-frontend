@@ -36,11 +36,11 @@ export default function Dashboard() {
   };
 
   const navItems = [
-    { id: 'beranda', label: 'Beranda', icon: Home },
-    { id: 'bukutahunan', label: 'Buku Tahunan', icon: BookOpen },
-    { id: 'karir', label: 'Karir', icon: Briefcase },
-    { id: 'jaringanalumni', label: 'Jaringan Alumni', icon: Users },
-    { id: 'profil', label: 'Profil', icon: User },
+    { id: 'home', label: 'Beranda', icon: Home },
+    { id: 'yearbook', label: 'Buku Tahunan', icon: BookOpen },
+    { id: 'jobs', label: 'Karir', icon: Briefcase },
+    { id: 'network', label: 'Jaringan Alumni', icon: Users },
+    { id: 'profile', label: 'Profil', icon: User },
   ];
 
   return (
