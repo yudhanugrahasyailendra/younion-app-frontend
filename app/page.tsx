@@ -68,7 +68,7 @@ export default function Dashboard() {
     <div className="flex bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-50 w-full h-screen overflow-hidden custom-scrollbar transition-colors duration-300">
 
       {/* DESKTOP SIDEBAR */}
-      <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col justify-between hidden md:flex shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-20 transition-colors duration-300">
+      <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col justify-between hidden md:flex shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-20 transition-colors duration-300 overflow-y-auto custom-scrollbar flex-shrink-0">
         <div>
           {/* LOGO */}
           <div className="p-8 flex justify-center w-full">
@@ -182,7 +182,7 @@ export default function Dashboard() {
             >
               {isDarkMode ? <Sun size={20} className="group-hover:animate-[spin_3s_linear_infinite]" /> : <Moon size={20} className="group-hover:animate-swing origin-top" />}
             </button>
-            <button className="relative text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group hidden sm:block">
+            <button className="relative text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group">
               <Bell size={20} className="group-hover:animate-swing origin-top" />
               <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-orange-500 rounded-full border-2 border-white dark:border-slate-900"></span>
             </button>
@@ -204,6 +204,22 @@ export default function Dashboard() {
         {/* CONTENT AREA */}
         <main className="flex-1 overflow-y-auto w-full p-4 md:p-8 scroll-smooth custom-scrollbar">
           <div className="max-w-6xl mx-auto pb-28 md:pb-20">
+
+            {/* ================= REUNI AKBAR MOBILE ================= */}
+            {activeTab === 'home' && (
+              <div className="md:hidden mb-6">
+                <div className="bg-gradient-to-br from-blue-900 to-indigo-900 dark:from-slate-800 dark:to-slate-900 p-5 rounded-2xl border border-blue-800 dark:border-slate-800 relative overflow-hidden group shadow-[0_8px_24px_rgba(30,58,138,0.2)]">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-sky-500/20 dark:bg-sky-400/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700" />
+                  <div className="relative z-10 text-white">
+                    <h4 className="font-bold mb-1 flex items-center gap-1.5"><Sparkles size={16} className="text-orange-400" /> Reuni Akbar</h4>
+                    <p className="text-xs text-blue-200/80 dark:text-slate-400 mb-3 leading-relaxed">Persiapkan kelasmu, pastikan teman-temanmu hadir!</p>
+                    <button className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-all shadow-md shadow-orange-500/30 active:scale-95">
+                      Cek Detail
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* ================= HOME ================= */}
             {activeTab === 'home' && (
